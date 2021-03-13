@@ -1,0 +1,84 @@
+body {
+     background-color: #a7fbff;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.player-label {
+    height: 20%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.gameinteract {
+height: 55%;
+justify-content: center;
+display: flex;
+flex-direction: row;
+
+}
+
+.gamecontainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.playercontainer {
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+    align-items: center;
+    border: 2px solid green;
+    border-radius: 5px;
+    margin: 5px;
+    
+
+    
+}
+
+.option, button {
+    height: 85%;
+    background-color: #ffbea7;
+    padding: 0;
+    margin: 0;
+    border-color:#ffbea7;   
+}
+
+img {
+    height: 80%;
+}
+
+p{
+text-align: center;
+margin-top: 0;
+}
+
+.score {
+    display: flex;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+footer {
+    position: fixed;
+    right: 5px;
+    bottom: 0;
+}
+
+
+#user-score, #cpu-score {
+    display: flex;
+    margin-top: 0;
+    margin-left: 3px;
+}
+
+.console-logger {
+    margin-top: 20px;
+}
