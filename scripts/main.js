@@ -102,30 +102,19 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-rock.onclick = choicesRock;
-paper.onclick = choicesPaper;
-scissors.onclick = choicesScissors;
+rock.onclick = onPlayerChoice;
+paper.onclick = onPlayerChoice;
+scissors.onclick = onPlayerChoice;
 
-function choicesRock(selection, CPUSelection) {
-    selection = 'rock';
-    CPUSelection = computerSelection();
+
+
+function onPlayerChoice(e) {
+    const selection = e.currentTarget.id;
+    const CPUSelection = computerSelection();
     result = Round(selection, CPUSelection);
     scoreChecker(result, selection, CPUSelection);
 }
 
-function choicesPaper(selection, CPUSelection) {
-    selection = 'paper';
-    CPUSelection = computerSelection();
-    result = Round(selection, CPUSelection);
-    scoreChecker(result, selection, CPUSelection);
-}
-
-function choicesScissors(selection, CPUSelection) {
-    selection = 'scissors';
-    CPUSelection = computerSelection();
-    result = Round(selection, CPUSelection);
-    scoreChecker(result, selection, CPUSelection);
-}
 
 
 
