@@ -115,9 +115,39 @@ function onPlayerChoice(e) {
     scoreChecker(result, selection, CPUSelection);
 }
 
+function renderCPUSelection(CPUSelection) {
+
+    setTimeout(function () {
+        const pcRock = document.querySelector('#pc-rock');
+        const pcPaper = document.querySelector('#pc-paper');
+        const pcScissors = document.querySelector('#pc-scissors');
+
+        pcRock.style.borderColor = 'transparent';
+        pcPaper.style.borderColor = 'transparent';
+        pcScissors.style.borderColor = 'transparent';
+
+    }, 2000);
+
+    const actualSelection = document.querySelector(`#pc-${CPUSelection}`);
+    actualSelection.style.borderColor = 'red';
 
 
+function resetGame() {
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
 
+    const userScore = document.querySelector('#user-score');
+    const cpuScore = document.querySelector('#cpu-score');
+    const consoleLogger = document.querySelector('#console-logger');
+    const gameResult = document.querySelector('#game-result');
+    userScore.textContent = '0';
+    cpuScore.textContent = '0';
+    counterCPUScore = 0;
+    counterUserScore = 0;
+    consoleLogger.textContent = "Let's start the game, you will play a best of 5, click on your weapon!";
+    gameResult.textContent = "";
+}
 
 
 //for (let i = 0; i < 5; i++) }

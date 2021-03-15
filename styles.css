@@ -82,3 +82,14 @@ footer {
 .console-logger {
     margin-top: 20px;
 }
+
+#pc-rock, #pc-paper, #pc-scissors {
+    border-style: dashed;
+    border-color: transparent;
+}
+
+#newgame {
+    background-color:#a7fbff;
+    border-color: green;
+    border-style: solid;
+}
