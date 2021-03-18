@@ -1,0 +1,100 @@
+body {
+    background-color: #a7fbff;
+   font-family: sans-serif;
+}
+
+h1 {
+   text-align: center;
+}
+
+.player-label {
+   height: 30%;
+}
+
+h2 {
+   text-align: center;
+}
+
+.gameinteract {
+height: 55%;
+justify-content: center;
+display: flex;
+flex-direction: row;
+
+}
+
+.gamecontainer {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+}
+.playercontainer {
+   display: flex;
+   flex-direction: row;
+   height: 70%;
+   align-items: center;
+   border: 2px solid green;
+   border-radius: 5px;
+   margin: 5px;
+   
+
+   
+}
+
+.option, #rock, #paper, #scissors {
+   height: 85%;
+   background-color: #ffbea7;
+   padding: 0;
+   margin: 0;
+   border-style: none;
+   border-color:#ffbea7;   
+}
+
+img {
+   height: 80%;
+}
+
+p{
+text-align: center;
+margin-top: 0;
+}
+
+.score {
+   display: flex;
+}
+
+h3 {
+   margin-top: 0;
+}
+
+footer {
+   position: fixed;
+   right: 5px;
+   bottom: 0;
+}
+
+
+#user-score, #cpu-score {
+   display: flex;
+   margin-top: 0;
+   margin-left: 3px;
+}
+
+.console-logger {
+   margin-top: 20px;
+}
+
+#pc-rock, #pc-paper, #pc-scissors {
+   border-style: dashed;
+   border-color: transparent;
+}
+
+#newgame {
+   background-color:#a7fbff;
+   border-color: green;
+   border-style: solid;
+}
+
+#game-screen {
+   display: none;
+}
