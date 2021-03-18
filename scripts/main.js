@@ -3,12 +3,14 @@ let counterUserScore = 0;
 let counterCPUScore = 0;
 let result = '';
 
-
-function gameScreenFadeOut() {
+const startGameButton = document.querySelector("#start-game");
+startGameButton.onclick = gameScreen;
+const startScreen = document.querySelector("#start-screen");
+function gameScreen() {
     const gameScreen = document.querySelector('#game-screen');
-    const gameHeader = document.querySelector('#game-header');
-    gameScreen.style.display = "none";
-    gameHeader.style.display = "none";
+    gameScreen.style.display = "block";
+    startScreen.style.display = "none";
+    document.body.style.backgroundColor = "#ffbea7";
 
 }
 

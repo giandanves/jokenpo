@@ -94,3 +94,7 @@ footer {
     border-color: green;
     border-style: solid;
 }
+
+#game-screen {
+    display: none;
+}
