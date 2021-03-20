@@ -1,5 +1,5 @@
 body {
-    background-color: #a7fbff;
+    background-color: #ffbea7;
    font-family: sans-serif;
 }
 
@@ -15,12 +15,17 @@ h1 {
    text-align: center;
 }
 
-.player-label {
-   height: 30%;
-}
 
 h2 {
    text-align: center;
+}
+
+.cpuscore {
+   text-align: right;
+}
+
+#game-header {
+   animation: from-right 0.2s linear forwards;
 }
 
 .gameinteract {
@@ -28,6 +33,7 @@ height: 55%;
 justify-content: center;
 display: flex;
 flex-direction: row;
+animation: from-right 0.5s linear forwards;
 
 }
 
@@ -43,10 +49,38 @@ flex-direction: row;
    align-items: center;
    border: 2px solid green;
    border-radius: 5px;
-   margin: 5px;
-   
+   margin: 5px;  
+}
 
-   
+.gameselections {
+   display: flex;
+   flex-direction: column;
+   height: 70%;
+   margin: 5px;
+   border: 2px solid green;
+}
+
+.labelscontainer {
+   display: flex;
+   flex-direction: column;
+   height: 70%;
+   margin: 5px;
+}
+
+#label {
+   border: solid green 2px;
+   height: 25px;
+   width: 50px;
+   text-align: center;
+}
+
+.selection {
+   height: 125px;
+   width: 125px;
+   margin: 1.5px;
+   display: flex;
+   align-items: center;
+
 }
 
 .option, #rock, #paper, #scissors {
@@ -55,11 +89,18 @@ flex-direction: row;
    padding: 0;
    margin: 0;
    border-style: none;
-   border-color:#ffbea7;   
+   border-color:#ffbea7;  
+   opacity: 0;
+   animation: fadein 0.5s ease-in 0.5s forwards;  
 }
 
 img {
    height: 80%;
+}
+
+#player-selection, #cpu-selection {
+   height: 130px;
+   width: 130px;
 }
 
 p{
@@ -69,7 +110,26 @@ margin-top: 0;
 
 .score {
    display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin: 5px;
 }
+
+.scoreuser {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 50%;
+}
+
+.scorepc {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   width: 50%;
+}
+
+
 
 h3 {
    margin-top: 0;
@@ -101,8 +161,25 @@ footer {
    background-color:#a7fbff;
    border-color: green;
    border-style: solid;
+   opacity: ;
+   animation: fadein 0.2s ease-in 1s forwards;
 }
 
 #game-screen {
    display: none;
+}
+
+@keyframes fadein {
+0% {
+   opacity: 0;
+}
+
+100% {
+   opacity: 1;
+}
+}
+
+@keyframes from-right {
+   from {transform: translateX(100px)}
+   to {transform: translateX(0px)}
 }
