@@ -3,6 +3,7 @@ let counterUserScore = 0;
 let counterCPUScore = 0;
 let result = '';
 
+
 const startGameButton = document.querySelector("#start-game");
 startGameButton.onclick = gameScreen;
 const startScreen = document.querySelector("#start-screen");
@@ -10,9 +11,11 @@ function gameScreen() {
     const gameScreen = document.querySelector('#game-screen');
     gameScreen.style.display = "block";
     startScreen.style.display = "none";
-    document.body.style.backgroundColor = "#ffbea7";
-
 }
+
+
+
+
 
 function Round(playerSelection, computerSelection) {
     let resultRound = '';
@@ -116,26 +119,38 @@ function onPlayerChoice(e) {
     const selection = e.currentTarget.id;
     const CPUSelection = computerSelection();
     result = Round(selection, CPUSelection);
-    renderCPUSelection(CPUSelection);
+    renderSelections(selection, CPUSelection);
     const endGameChecker = updateScore(result);
     render(result, selection, CPUSelection, endGameChecker);
 }
 
-function renderCPUSelection(CPUSelection) {
+function renderSelections(selection, CPUSelection) {
+
+    const playerSelection = document.querySelector('#player-selection');
+    const PCSelection = document.querySelector('#cpu-selection');
+
+    const imgPlayerSelection = document.createElement('img');
+    const imgPCSelection = document.createElement('img');
+    imgPlayerSelection.classList.add('selection');
+    imgPCSelection.classList.add('selection');
+
+    playerSelection.appendChild(imgPlayerSelection);
+    PCSelection.appendChild(imgPCSelection);
+
+
+    imgPlayerSelection.src = `/images/${selection}.png`;
+    imgPCSelection.src = `/images/${CPUSelection}.png`;
+
 
     setTimeout(function () {
-        const pcRock = document.querySelector('#pc-rock');
-        const pcPaper = document.querySelector('#pc-paper');
-        const pcScissors = document.querySelector('#pc-scissors');
+        imgPlayerSelection.style.display = 'none';
+        imgPCSelection.style.display = 'none';
 
-        pcRock.style.borderColor = 'transparent';
-        pcPaper.style.borderColor = 'transparent';
-        pcScissors.style.borderColor = 'transparent';
 
     }, 2000);
 
-    const actualSelection = document.querySelector(`#pc-${CPUSelection}`);
-    actualSelection.style.borderColor = 'red';
+    //const actualSelection = document.querySelector(`#pc-${CPUSelection}`);
+    //actualSelection.style.borderColor = 'red';
 
 }
 

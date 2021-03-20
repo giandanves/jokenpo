@@ -13,6 +13,7 @@
 
     <div id="start-screen">
         <h1>Rock, Paper, Scissors!</h1>
+        <div> <img id="start-banner" src='images/rock-paper-scissors-flat-icons.png'> </div>
         <div style="text-align: center;">
             <button id='start-game'>Start Game</button>
         </div>
@@ -24,9 +25,6 @@
         <h1 id="game-header">Choose your weapon!</h1>
         <div class="gameinteract">
             <div class="gamecontainer">
-                <div class='player-label'>
-                    <h2>YOU</h2>
-                </div>
                 <div class="playercontainer">
                     <div class="option">
                         <button id="rock"> <img src=' images/rock.png'> </button>
@@ -42,34 +40,41 @@
                     </div>
                 </div>
                 <div class=score>
-                    <h3>Score: </h3>
-                    <h3 id="user-score">0</h3>
+                    <div class=scoreuser>
+                        <h3>YOU: </h3>
+                        <h3 id="user-score">0</h3>
+                    </div>
+                    <div class=scorepc>
+                        <h3 class=cpuscore>CPU: </h3>
+                        <h3 class=cpuscore id="cpu-score">0</h3>
+                    </div>
                 </div>
             </div>
 
-            <div class="gamecontainer">
-                <div class='player-label'>
-                    <h2>CPU</h2>
+
+            <div class=gameselections>
+                <div class="player-selection" id="player-selection">
+
                 </div>
-                <div class="playercontainer">
-                    <div class="option">
-                        <img id="pc-rock" src=' images/rock.png'>
-                        <p>Rock</p>
-                    </div>
-                    <div class="option">
-                        <img id="pc-paper" src='images/paper.png'>
-                        <p>Paper</p>
-                    </div>
-                    <div class="option">
-                        <img id="pc-scissors" src='images/scissors.png'>
-                        <p>Scissors</p>
-                    </div>
+                <div class="selection" id="cpu-selection">
                 </div>
-                <div class=score>
-                    <h3>Score: </h3>
-                    <h3 id="cpu-score">0</h3>
-                </div>
+
             </div>
+
+            <div class=labelscontainer>
+                <div class="selection">
+                    <h3 id="label"> YOU </h3>
+                </div>
+                <div class="selection">
+                    <h3 id="label"> CPU </h3>
+                </div>
+
+            </div>
+
+
+
+
+
         </div>
         <p id="console-logger" class="console-logger">Let's start the game, you will play a best of 5, click on your
             weapon!</p>
