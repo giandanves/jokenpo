@@ -96,9 +96,7 @@ function render(result, playerSelection, computerSelection, endGameChecker) {
     consoleLogger.textContent = `You chose ${playerSelection} and CPU's choice is ${computerSelection}${textResult}`;
 
     if (endGameChecker == 'win' || endGameChecker == 'lose') {
-        rock.disabled = true;
-        paper.disabled = true;
-        scissors.disabled = true;
+
         gameResult.textContent = `It's over! You ${endGameChecker}!`;
     }
 
@@ -119,12 +117,12 @@ function onPlayerChoice(e) {
     const selection = e.currentTarget.id;
     const CPUSelection = computerSelection();
     result = Round(selection, CPUSelection);
-    renderSelections(selection, CPUSelection);
     const endGameChecker = updateScore(result);
+    renderSelections(selection, CPUSelection, endGameChecker);
     render(result, selection, CPUSelection, endGameChecker);
 }
 
-function renderSelections(selection, CPUSelection) {
+function renderSelections(selection, CPUSelection, endGameChecker) {
 
     const playerSelection = document.querySelector('#player-selection');
     const PCSelection = document.querySelector('#cpu-selection');
