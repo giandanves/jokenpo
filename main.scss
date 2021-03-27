@@ -13,6 +13,7 @@ body {
 
 h1 {
    text-align: center;
+   margin-top: 40px;
 }
 
 
@@ -29,10 +30,9 @@ h2 {
 }
 
 .gameinteract {
-height: 55%;
-justify-content: center;
 display: flex;
 flex-direction: row;
+justify-content: center;
 animation: from-right 0.5s linear forwards;
 
 }
@@ -40,12 +40,11 @@ animation: from-right 0.5s linear forwards;
 .gamecontainer {
    display: flex;
    flex-direction: column;
-   height: 100%;
 }
 .playercontainer {
    display: flex;
    flex-direction: row;
-   height: 70%;
+   height: 263px;
    align-items: center;
    border: 2px solid green;
    border-radius: 5px;
@@ -58,6 +57,7 @@ animation: from-right 0.5s linear forwards;
    height: 70%;
    margin: 5px;
    border: 2px solid green;
+   border-radius: 5px;
 }
 
 .labelscontainer {
@@ -84,7 +84,6 @@ animation: from-right 0.5s linear forwards;
 }
 
 .option, #rock, #paper, #scissors {
-   height: 85%;
    background-color: #ffbea7;
    padding: 0;
    margin: 0;
@@ -169,7 +168,6 @@ footer {
    background-color:#a7fbff;
    border-color: green;
    border-style: solid;
-   opacity: ;
    animation: fadein 0.2s ease-in 1s forwards;
 }
 
