@@ -141,10 +141,20 @@ function renderSelections(selection, CPUSelection) {
     imgPlayerSelection.src = `/images/${selection}.png`;
     imgPCSelection.src = `/images/${CPUSelection}.png`;
 
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+
 
     setTimeout(function () {
         imgPlayerSelection.style.display = 'none';
         imgPCSelection.style.display = 'none';
+
+        if (endGameChecker == 'not finished') {
+            rock.disabled = false;
+            paper.disabled = false;
+            scissors.disabled = false;
+        }
 
 
     }, 2000);
