@@ -8,15 +8,9 @@ body {
   margin-right: auto;
   margin-bottom: 5px; }
 
-.hidden {
-  opacity: 0;
-  transition: opacity 1s ease-in; }
-
-.visible {
-  opacity: 1; }
-
 h1 {
-  text-align: center; }
+  text-align: center;
+  margin-top: 40px; }
 
 h2 {
   text-align: center; }
@@ -28,21 +22,19 @@ h2 {
   animation: from-right 0.2s linear forwards; }
 
 .gameinteract {
-  height: 55%;
-  justify-content: center;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   animation: from-right 0.5s linear forwards; }
 
 .gamecontainer {
   display: flex;
-  flex-direction: column;
-  height: 100%; }
+  flex-direction: column; }
 
 .playercontainer {
   display: flex;
   flex-direction: row;
-  height: 70%;
+  height: 263px;
   align-items: center;
   border: 2px solid green;
   border-radius: 5px;
@@ -53,7 +45,8 @@ h2 {
   flex-direction: column;
   height: 70%;
   margin: 5px;
-  border: 2px solid green; }
+  border: 2px solid green;
+  border-radius: 5px; }
 
 .labelscontainer {
   display: flex;
@@ -75,7 +68,6 @@ h2 {
   align-items: center; }
 
 .option, #rock, #paper, #scissors {
-  height: 85%;
   background-color: #ffbea7;
   padding: 0;
   margin: 0;
@@ -86,6 +78,10 @@ h2 {
 
 img {
   height: 80%; }
+
+.optionsimg {
+  height: 135px;
+  width: 135px; }
 
 #player-selection, #cpu-selection {
   height: 130px;
@@ -137,7 +133,6 @@ footer {
   background-color: #a7fbff;
   border-color: green;
   border-style: solid;
-  opacity: 0;
   animation: fadein 0.2s ease-in 1s forwards; }
 
 #game-screen {
