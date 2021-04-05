@@ -1,3 +1,6 @@
+import Game from './game';
+//checar o contador 
+
 const options = ['rock', 'paper', 'scissors'];
 let counterUserScore = 0;
 let counterCPUScore = 0;
@@ -13,67 +16,6 @@ function gameScreen() {
     startScreen.style.display = "none";
 }
 
-
-
-
-
-function Round(playerSelection, computerSelection) {
-    let resultRound = '';
-    if (playerSelection == computerSelection) {
-        resultRound = "draw";
-    } else if (playerSelection == 'rock') {
-        if (computerSelection == 'scissors') {
-            resultRound = "win";
-        } else {
-            resultRound = "lose";
-        }
-    } else if (playerSelection == 'paper') {
-        if (computerSelection == 'rock') {
-            resultRound = "win";
-        } else {
-            resultRound = "lose";
-        }
-    } else if (playerSelection == 'scissors') {
-        if (computerSelection == 'paper') {
-            resultRound = "win";
-        } else {
-            resultRound = "lose";
-        }
-    }
-
-
-    return resultRound;
-}
-
-function computerSelection() {
-    let random = Math.floor(Math.random() * options.length);
-    let CPUSelection = options[random];
-    return CPUSelection;
-}
-
-function updateScore(result) {
-
-    const userScore = document.querySelector('#user-score');
-    const cpuScore = document.querySelector('#cpu-score');
-
-    if (result == 'win') {
-        counterUserScore++;
-
-    } else if (result == 'lose') {
-        counterCPUScore++;
-
-    }
-
-    if (counterCPUScore == 3) {
-        return 'lose';
-    } else if (counterUserScore == 3) {
-        return 'win';
-    }
-
-    else {
-        return 'not finished';
-    }
-}
 
 function render(result, playerSelection, computerSelection, endGameChecker) {
     const consoleLogger = document.querySelector('#console-logger');
@@ -101,7 +43,7 @@ function render(result, playerSelection, computerSelection, endGameChecker) {
     }
 
 }
-
+const GameOne = new Game();
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
@@ -115,11 +57,12 @@ scissors.onclick = onPlayerChoice;
 
 function onPlayerChoice(e) {
     const selection = e.currentTarget.id;
-    const CPUSelection = computerSelection();
-    result = Round(selection, CPUSelection);
-    const endGameChecker = updateScore(result);
+    const CPUSelection = GameOne.computerSelection();
+    result = GameOne.Round(selection, CPUSelection);
+    const endGameChecker = GameOne.updateScore(result);
     renderSelections(selection, CPUSelection, endGameChecker);
     render(result, selection, CPUSelection, endGameChecker);
+    console.log(GameOne.scorelogger());
 }
 
 function renderSelections(selection, CPUSelection, endGameChecker) {
