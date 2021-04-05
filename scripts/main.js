@@ -79,8 +79,8 @@ function renderSelections(selection, CPUSelection, endGameChecker) {
     PCSelection.appendChild(imgPCSelection);
 
 
-    imgPlayerSelection.src = `/images/${selection}.png`;
-    imgPCSelection.src = `/images/${CPUSelection}.png`;
+    imgPlayerSelection.src = `images/${selection}.png`;
+    imgPCSelection.src = `images/${CPUSelection}.png`;
 
     rock.disabled = true;
     paper.disabled = true;
