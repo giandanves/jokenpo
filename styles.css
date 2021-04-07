@@ -12,6 +12,9 @@ h1 {
   text-align: center;
   margin-top: 40px; }
 
+#endh1 {
+  color: #f0e50e; }
+
 h2 {
   text-align: center; }
 
@@ -39,6 +42,16 @@ h2 {
   border: 2px solid green;
   border-radius: 5px;
   margin: 5px; }
+
+.gameresults {
+  display: flex;
+  height: 263px;
+  width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  border-radius: 5px;
+  border: 2px solid #f0e50e; }
 
 .gameselections {
   display: flex;
@@ -129,13 +142,16 @@ footer {
   border-style: dashed;
   border-color: transparent; }
 
-#newgame {
+#newgame, #exit {
   background-color: #a7fbff;
   border-color: green;
   border-style: solid;
   animation: fadein 0.2s ease-in 1s forwards; }
 
-#game-screen {
+#back-button {
+  margin-top: 30px; }
+
+#game-screen, #gameover-screen {
   display: none; }
 
 @keyframes fadein {

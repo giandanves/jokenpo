@@ -1,8 +1,24 @@
+
 class Game {
-    userScore = 0;
-    cpuScore = 0;
+
+    constructor() {
+        this.userScore = 0;
+        this.cpuScore = 0;
+        this.finalScore = '';
+    }
+
+    get actualUserScore() {
+        return this.userScore;
+    }
+
+    get actualCpuScore() {
+        return this.cpuScore;
+    }
 
     computerSelection() {
+
+        const options = ['rock', 'paper', 'scissors'];
+
         let random = Math.floor(Math.random() * options.length);
         let CPUSelection = options[random];
         return CPUSelection;
@@ -45,9 +61,9 @@ class Game {
 
         }
 
-        if (counterCPUScore == 3) {
+        if (this.cpuScore == 3) {
             return 'lose';
-        } else if (counterUserScore == 3) {
+        } else if (this.userScore == 3) {
             return 'win';
         }
 
@@ -56,8 +72,12 @@ class Game {
         }
     }
 
-    scoreLogger() {
-        return `${updateScore(result).toUpperCase} - YOU: ${this.userScore} CPU: ${this.cpuScore}`;
+    scoreLogger(result) {
+        this.finalScore = `${result.toUpperCase()} - YOU: ${this.userScore} CPU: ${this.cpuScore}`;
+        return this.finalScore;
     }
 
 }
+
+
+export default Game;
