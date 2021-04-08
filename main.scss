@@ -17,6 +17,16 @@ h1 {
    margin-top: 40px;
 }
 
+.roundresult {
+   height: fit-content;
+    width: inherit;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: #3d758b;
+}
+
 #endh1 {
    color: #f0e50e;
 }
@@ -31,6 +41,11 @@ h2 {
 
 #game-header {
    animation: from-right 0.2s linear forwards;
+}
+
+#game-result {
+   margin-top: 20px;
+   color: white;
 }
 
 .gameinteract {
@@ -55,8 +70,9 @@ animation: from-right 0.5s linear forwards;
    margin: 5px;  
 }
 
-.gameresults {
+#gameresults {
    display: flex;
+   flex-direction: column;
    height: 263px;
    width: 576px;
    margin-left: auto;
