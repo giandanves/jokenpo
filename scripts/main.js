@@ -6,23 +6,23 @@ import GameOverScreen from './game-over-screen.js';
 
 let history = [];
 let currentScreen;
+let roundsCounter = 0;
 
 function onNewGameClick() {
     currentScreen.stop();
     currentScreen = new GameScreen(new Game, onNewGameClick, onGameOver);
+    currentScreen.handleReset();
 }
 
-function onGameOver() {
+function onGameOver(game) {
     history.push(game);
+    console.log(game);
+    roundsCounter++;
     currentScreen.stop();
-    currentScreen = new GameOverScreen(onGameOver, restartApp);
-    console.log(history);
+    currentScreen = new GameOverScreen(onNewGameClick, game, roundsCounter);
+    currentScreen.renderHistory();
 }
 
-function restartApp() {
-    currentScreen.stop();
-    initApp();
-}
 
 
 function initApp() {

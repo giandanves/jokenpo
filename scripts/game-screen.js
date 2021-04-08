@@ -5,18 +5,45 @@ class GameScreen {
 
     constructor(game, onNewGameClick, onGameOver) {
         this.game = game;
+        document.body.style.background = "#ffbea7";
         this.gameScreen = document.querySelector('#game-screen');
         this.gameScreen.style.display = "block";
         this.onGameOver = onGameOver;
-        this.button = document.querySelector("#exit");
-        this.button.onclick = this.onGameOver;
+        this.newGameButton = document.querySelector("#newgame");
+        this.newGameButton.addEventListener('click', this.handleReset);
+
+
+        this.rock = document.querySelector('#rock');
+        this.paper = document.querySelector('#paper');
+        this.scissors = document.querySelector('#scissors');
+
+        this.rock.addEventListener('click', this.onPlayerChoice);
+        this.paper.addEventListener('click', this.onPlayerChoice);
+        this.scissors.addEventListener('click', this.onPlayerChoice);
+
     }
 
+    handleGameOver = () => {
 
+        setTimeout(() => {
+            this.onGameOver(this.game);
+
+
+        }, 2000);
+
+    }
+
+    handleReset = () => {
+        this.resetGame(this.game);
+    }
 
     stop() {
         this.gameScreen.style.display = "none";
-        renderSelections
+        this.rock.removeEventListener('click', this.onPlayerChoice);
+        this.paper.removeEventListener('click', this.onPlayerChoice);
+        this.scissors.removeEventListener('click', this.onPlayerChoice);
+        this.newGameButton.removeEventListener('click', this.handleReset);
+
     }
 
     render(result, playerSelection, computerSelection, endGameChecker) {
@@ -40,93 +67,80 @@ class GameScreen {
         consoleLogger.textContent = `You chose ${playerSelection} and CPU's choice is ${computerSelection}${textResult}`;
 
         if (endGameChecker == 'win' || endGameChecker == 'lose') {
-            gameResult.textContent = `It's over! You ${endGameChecker}!`;
+            gameResult.textContent = `IT'S OVER, YOU ${this.game.scoreLogger(endGameChecker)}`;
+            this.handleGameOver();
         }
 
     }
 
-}
+    onPlayerChoice = (e) => {
+        const selection = e.currentTarget.id;
+        const CPUSelection = this.game.computerSelection();
+        let result = this.game.round(selection, CPUSelection);
+        const endGameChecker = this.game.updateScore(result);
+        this.renderSelections(selection, CPUSelection, endGameChecker);
+        this.render(result, selection, CPUSelection, endGameChecker);
+    }
 
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
+    renderSelections(selection, CPUSelection, endGameChecker) {
+        const playerSelection = document.querySelector('#player-selection');
+        const PCSelection = document.querySelector('#cpu-selection');
 
-rock.onclick = onPlayerChoice;
-paper.onclick = onPlayerChoice;
-scissors.onclick = onPlayerChoice;
+        const imgPlayerSelection = document.createElement('img');
+        const imgPCSelection = document.createElement('img');
+        imgPlayerSelection.classList.add('selection');
+        imgPCSelection.classList.add('selection');
 
-let game = new Game();
-let screen = new GameScreen(game);
-
-function onPlayerChoice(e) {
-    const selection = e.currentTarget.id;
-    const CPUSelection = game.computerSelection();
-    let result = game.round(selection, CPUSelection);
-    const endGameChecker = game.updateScore(result);
-    renderSelections(selection, CPUSelection, endGameChecker);
-    screen.render(result, selection, CPUSelection, endGameChecker);
-    console.log(game.scoreLogger(endGameChecker));
-}
+        playerSelection.appendChild(imgPlayerSelection);
+        PCSelection.appendChild(imgPCSelection);
 
 
+        imgPlayerSelection.src = `images/${selection}.png`;
+        imgPCSelection.src = `images/${CPUSelection}.png`;
 
-function renderSelections(selection, CPUSelection, endGameChecker) {
-
-    const playerSelection = document.querySelector('#player-selection');
-    const PCSelection = document.querySelector('#cpu-selection');
-
-    const imgPlayerSelection = document.createElement('img');
-    const imgPCSelection = document.createElement('img');
-    imgPlayerSelection.classList.add('selection');
-    imgPCSelection.classList.add('selection');
-
-    playerSelection.appendChild(imgPlayerSelection);
-    PCSelection.appendChild(imgPCSelection);
+        this.rock.disabled = true;
+        this.paper.disabled = true;
+        this.scissors.disabled = true;
 
 
-    imgPlayerSelection.src = `images/${selection}.png`;
-    imgPCSelection.src = `images/${CPUSelection}.png`;
 
-    rock.disabled = true;
-    paper.disabled = true;
-    scissors.disabled = true;
+        setTimeout(() => {
+            imgPlayerSelection.style.display = 'none';
+            imgPCSelection.style.display = 'none';
 
-
-    setTimeout(function () {
-        imgPlayerSelection.style.display = 'none';
-        imgPCSelection.style.display = 'none';
-
-        if (endGameChecker == 'not finished') {
-            rock.disabled = false;
-            paper.disabled = false;
-            scissors.disabled = false;
-        }
+            if (endGameChecker == 'not finished') {
+                this.rock.disabled = false;
+                this.paper.disabled = false;
+                this.scissors.disabled = false;
+            }
 
 
-    }, 2500);
-}
+        }, 1500);
+    }
+
+    resetGame(game) {
+        rock.disabled = false;
+        paper.disabled = false;
+        scissors.disabled = false;
+
+        const userScore = document.querySelector('#user-score');
+        const cpuScore = document.querySelector('#cpu-score');
+        const consoleLogger = document.querySelector('#console-logger');
+        const gameResult = document.querySelector('#game-result');
+        userScore.textContent = '0';
+        cpuScore.textContent = '0';
+        game.cpuScore = 0;
+        game.userScore = 0;
+        consoleLogger.textContent = "Let's start the game, you will play a best of 5, click on your weapon!";
+        gameResult.textContent = "";
+    }
 
 
-function resetGame() {
-    rock.disabled = false;
-    paper.disabled = false;
-    scissors.disabled = false;
-
-    const userScore = document.querySelector('#user-score');
-    const cpuScore = document.querySelector('#cpu-score');
-    const consoleLogger = document.querySelector('#console-logger');
-    const gameResult = document.querySelector('#game-result');
-    userScore.textContent = '0';
-    cpuScore.textContent = '0';
-    game.cpuScore = 0;
-    game.userScore = 0;
-    consoleLogger.textContent = "Let's start the game, you will play a best of 5, click on your weapon!";
-    gameResult.textContent = "";
 }
 
 
-const newGame = document.querySelector('#newgame');
-newGame.onclick = resetGame;
+
+
 
 
 export default GameScreen;
