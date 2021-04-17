@@ -1,0 +1,104 @@
+<html>
+
+<head>
+
+    <title> </title>
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <div id="start-screen">
+        <h1>Rock, Paper, Scissors!</h1>
+        <div> <img id="start-banner" src='images/rock-paper-scissors-flat-icons.png'> </div>
+        <div style="text-align: center;">
+            <button id='start-game'>Start Game</button>
+        </div>
+
+    </div>
+
+    <div id="gameover-screen">
+        <h1 id="endh1">Well played! Another one? </h1>
+        <div id="gameresults"> </div>
+        <p id="game-result"></p>
+        <div style="text-align: center;">
+            <button id='new-game'>New Game</button>
+        </div>
+    </div>
+
+    <div id="game-screen">
+
+        <h1 id="game-header">Choose your weapon!</h1>
+        <div class="gameinteract">
+            <div class="gamecontainer">
+                <div class="playercontainer">
+                    <div class="option">
+                        <button id="rock"> <img class="optionsimg" src=' images/rock.png'> </button>
+                        <p>Rock</p>
+                    </div>
+                    <div class="option">
+                        <button id="paper"><img class="optionsimg" src='images/paper.png'> </button>
+                        <p>Paper</p>
+                    </div>
+                    <div class="option">
+                        <button id="scissors"><img class="optionsimg" src='images/scissors.png'> </button>
+                        <p>Scissors</p>
+                    </div>
+                </div>
+                <div class=score>
+                    <div class=scoreuser>
+                        <h3>YOU: </h3>
+                        <h3 id="user-score">0</h3>
+                    </div>
+                    <div class=scorepc>
+                        <h3 class=cpuscore>CPU: </h3>
+                        <h3 class=cpuscore id="cpu-score">0</h3>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class=gameselections>
+                <div class="player-selection" id="player-selection">
+
+                </div>
+                <div class="selection" id="cpu-selection">
+                </div>
+
+            </div>
+
+            <div class=labelscontainer>
+                <div class="selection">
+                    <h3 id="label"> YOU </h3>
+                </div>
+                <div class="selection">
+                    <h3 id="label"> CPU </h3>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+        <p id="console-logger" class="console-logger">Let's start the game, you will play a best of 5, click on your
+            weapon!</p>
+        <div style="text-align: center;">
+            <button id="newgame">New Game</button>
+        </div>
+
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+
+</body>
+
+<footer>
+    <a href="https://www.vecteezy.com/free-vector/rock-paper-scissors">Rock Paper Scissors Vectors by Vecteezy</a>
+</footer>
+
+</html>

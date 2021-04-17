@@ -1,0 +1,181 @@
+body {
+  background-color: #ffbea7;
+  font-family: sans-serif; }
+
+#start-banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px; }
+
+h1 {
+  text-align: center;
+  margin-top: 40px; }
+
+.roundresult {
+  height: fit-content;
+  width: inherit;
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #3d758b; }
+
+#endh1 {
+  color: #f0e50e; }
+
+h2 {
+  text-align: center; }
+
+.cpuscore {
+  text-align: right; }
+
+#game-header {
+  animation: from-right 0.2s linear forwards; }
+
+#game-result {
+  margin-top: 20px;
+  color: white; }
+
+.gameinteract {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  animation: from-right 0.5s linear forwards; }
+
+.gamecontainer {
+  display: flex;
+  flex-direction: column; }
+
+.playercontainer {
+  display: flex;
+  flex-direction: row;
+  height: 263px;
+  align-items: center;
+  border: 2px solid green;
+  border-radius: 5px;
+  margin: 5px; }
+
+#gameresults {
+  display: flex;
+  flex-direction: column;
+  height: 263px;
+  width: 576px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  border-radius: 5px;
+  border: 2px solid #f0e50e; }
+
+.gameselections {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  margin: 5px;
+  border: 2px solid green;
+  border-radius: 5px; }
+
+.labelscontainer {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  margin: 5px; }
+
+#label {
+  border: solid green 2px;
+  height: 25px;
+  width: 50px;
+  text-align: center; }
+
+.selection {
+  height: 125px;
+  width: 125px;
+  margin: 1.5px;
+  display: flex;
+  align-items: center; }
+
+.option, #rock, #paper, #scissors {
+  background-color: #ffbea7;
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  border-color: #ffbea7;
+  opacity: 0;
+  animation: fadein 0.5s ease-in 0.5s forwards; }
+
+img {
+  height: 80%; }
+
+.optionsimg {
+  height: 135px;
+  width: 135px; }
+
+#player-selection, #cpu-selection {
+  height: 130px;
+  width: 130px; }
+
+p {
+  text-align: center;
+  margin-top: 0; }
+
+.score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px; }
+
+.scoreuser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%; }
+
+.scorepc {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 50%; }
+
+h3 {
+  margin-top: 0; }
+
+footer {
+  position: fixed;
+  right: 5px;
+  bottom: 0; }
+
+#user-score, #cpu-score {
+  display: flex;
+  margin-top: 0;
+  margin-left: 3px; }
+
+.console-logger {
+  margin-top: 20px; }
+
+#pc-rock, #pc-paper, #pc-scissors {
+  border-style: dashed;
+  border-color: transparent; }
+
+#newgame, #exit {
+  background-color: #a7fbff;
+  border-color: green;
+  border-style: solid;
+  animation: fadein 0.2s ease-in 1s forwards; }
+
+#back-button {
+  margin-top: 30px; }
+
+#game-screen, #gameover-screen {
+  display: none; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes from-right {
+  from {
+    transform: translateX(100px); }
+  to {
+    transform: translateX(0px); } }

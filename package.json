@@ -1,0 +1,26 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.26.14",
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync -start --server --files \"*\"",
+    "compile:sass": "node-sass main.scss styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giandanves/jokenpo.git"
+  },
+  "author": "giandanves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giandanves/jokenpo/issues"
+  },
+  "homepage": "https://github.com/giandanves/jokenpo#readme"
+}
